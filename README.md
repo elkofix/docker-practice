@@ -30,26 +30,28 @@ sudo apt update
 ```sh
 apt list -a docker-ce
 ```
+![Imagen de versiones de docker](1.png)
 
 ### Instalar una versión específica
 ```sh
 sudo apt install -y docker-ce=<version> docker-ce-cli=<version> containerd.io
 ```
-
+![Instalar docker](2.png)
 ---
 
 ## Correr Docker hello-world
 ```sh
 docker run hello-world
 ```
-
+![Correr imagen docker](3.png)
+![Correr imagen docker](4.png)
 ---
 
 ## Ver el storage driver actual
 ```sh
 docker info | grep "Storage Driver"
 ```
-
+![Correr imagen docker](5.png)
 ## Parar Docker
 ```sh
 sudo systemctl stop docker
@@ -79,10 +81,11 @@ sudo systemctl start docker
 ```sh
 docker info | grep "Storage Driver"
 ```
-
+![Correr imagen docker](7.png)
 ---
 
 ## Correr un contenedor
+![Correr imagen docker](81.png)
 
 ### Cambiar otra vez a overlay2
 ```sh
@@ -106,14 +109,14 @@ sudo systemctl start docker
 ```sh
 docker info | grep "Storage Driver"
 ```
-
+![Correr imagen docker](8.png)
 ---
 
 ## Correr una versión específica de Nginx
 ```sh
 docker run --name my-nginx -p 8080:80 nginx:1.18.0
 ```
-
+![Correr imagen docker](9.png)
 ## Detener contenedor y borrarlo
 ```sh
 docker kill 3aa969b970d8
@@ -124,11 +127,12 @@ docker rm 3aa969b970d8
 ```sh
 docker run -d --name my-nginx -p 8080:80 nginx:1.18.0
 ```
-
+![Correr imagen docker](10.png)
 ## Ver logs
 ```sh
 docker logs -f my-nginx
 ```
+![Correr imagen docker](11.png)
 
 ---
 
@@ -141,11 +145,13 @@ docker run -d \
   -p 443:80 \
   nginx:1.18.0
 ```
+![Correr imagen docker](12.png)
 
 ## Verificar contenedor
 ```sh
 docker stats nginx18
 ```
+![Correr imagen docker](13.png)
 
 ## Parar y borrar el contenedor y correrlo con logging en journald
 ```sh
@@ -156,3 +162,4 @@ docker run -d --log-driver=journald --name nginx18 --restart on-failure --memory
 ```sh
 journalctl -u docker.service --no-pager | grep nginx18
 ```
+![Correr imagen docker](15.png)
